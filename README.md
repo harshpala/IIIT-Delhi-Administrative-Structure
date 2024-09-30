@@ -8,9 +8,12 @@ The program reads data related to various personnel in both administrative and a
 
 ## Class Diagram
 
-Below is the class diagram for IIT-Delhi Administrative Structure:
+Below is the class diagram for IIIT-Delhi Administrative Structure:
 
 ![alt text](Class_Diagram.png)
+
+Below is the class diagram for IIIT-Delhi Academic Structure:
+![alt text](Class_Diagram_2.png)
 
 
 ## Files
@@ -41,16 +44,24 @@ To compile and execute the program, follow these steps:
     ```sh
     $ make
     ```
-This will create three executables:
+This will create six executables:
 
 - Q1_debug: The debug version.
 - Q1_optimised: The optimized version.
 - Q1.o: The object file.
+- Q2_debug: The debug version.
+- Q2_optimised: The optimized version.
+- Q2.o: The object file.
   
-3. To execute the optimized code, run:
+To execute the optimized code, run:
    ```sh
    $ ./Q1_optimised
    ```
+or
+   ```sh
+   $ ./Q2_optimised
+   ```
+
 ## Running the Program
 
 Once the program is running, it will prompt you to enter the name of the person to search for. Based on the input, it will output the person's position, phone number, email, and address if they are found in the department.
@@ -93,6 +104,20 @@ Officers,Technical Officer (IT) (SG),Abhinay Saxena,011 26907 574,,abhinay@iiitd
 
 ```
 
+The program expects the input data file (data.csv) to have the following structure:
+
+```
+Name,Position,Address,Phone,Email,Department
+Priti Patwal,Assistant Administrative Officer,A-501 (R&D Block),011 26907 411,pritip@iiitd.ac.in,Computer Science
+Sambuddho Chakravarty,Head Of Department,B-503(R&D Block),+91-11-26907355,sambuddho@iiitd.ac.in,Computer Science
+Rajiv Ratan Shah,Associate Professor,A-409(R&D Block),+91-11-26907495,rajivratn@iiitd.ac.in,Computer Science
+Saket Anand,Associate Professor,B-410(R&D Block),+91-11-26907425,anands@iiitd.ac.in,Computer Science
+Debjyoti Bera,Associate Professor,B-508(R&D Block),+91-11-26907442,dbera@iiitd.ac.in,Computer Science
+Rinku Shah,Assistant Professor,B-502(R&D Block),+91-11-26907538,rinku@iiitd.ac.in,Computer Science
+
+
+```
+
 Ensure that the columns are comma-separated and that the data follows this structure.
 
 
@@ -108,6 +133,7 @@ Ensure that the columns are comma-separated and that the data follows this struc
 ## References
 
 * The data for this program is taken from the official IIIT-Delhi website: [IIIT-Delhi Administrative People](https://www.iiitd.ac.in/people/administration).
+* The data for this program is taken from the official IIIT-Delhi website: [IIIT-Delhi Academic People](https://cse.iiitd.ac.in/people/faculty/).
 * Web scraping guidance was provided by this tutorial: [Scraping a Web Page - Part 1](https://www.thedataschool.co.uk/conrad-wilson/scraping-a-web-page-part-1-inspecting-the-html/).
 * Understanding class and inheritance in C++ was guided by this tutorial: [Types of Inheritance in C++](https://www.simplilearn.com/tutorials/cpp-tutorial/types-of-inheritance-in-cpp).
 
