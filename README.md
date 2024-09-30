@@ -40,7 +40,6 @@ To compile and execute the program, follow these steps:
 2. Run the make command to build the program:
     ```sh
     $ make
-    $ ./Q1_optimised
     ```
 This will create three executables:
 
