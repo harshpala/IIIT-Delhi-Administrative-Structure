@@ -5,7 +5,6 @@
 
 using namespace std;
 
-const int ROWS = 68;
 const string CSV_PATH = "C:/Users/harsh/Documents/MTech/OOPD/Assignment/Assignment 2/Assignment-2A/MT24119/data/data2.csv";
 const int MAX_DEPARTMENTS = 5;
 
