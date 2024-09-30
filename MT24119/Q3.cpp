@@ -169,6 +169,21 @@ public:
     }
 };
 
+string trim(const string& str) {
+        size_t first = str.find_first_not_of(' ');
+        size_t last = str.find_last_not_of(' ');
+        if (first == string::npos || last == string::npos)
+            return "";
+        return str.substr(first, (last - first + 1));
+    }
+string toLower(const string& str) {
+    string result = str;
+    for (char& c : result) {
+        c = tolower(c);
+    }
+    return result;
+}
+
 class ComplaintSystem {
 private:
     AdministrativeDepartment* departments[MAX_DEPARTMENTS];
@@ -231,14 +246,14 @@ public:
         cout << "Has complaint been resolved? (Yes/No): ";
         cin >> resolved;
 
-        if (resolved == "Yes") {
+        if (toLower(resolved) == "yes") {
             cout << "Complaint has been closed." << endl;
         } else {
             string threeDaysPassed;
             cout << "Have 3 days passed? (Yes/No): ";
             cin >> threeDaysPassed;
 
-            if (threeDaysPassed == "Yes") {
+            if (toLower(threeDaysPassed) == "yes") {
                 Officer* nextOfficer = officerDept->getNextSeniorOfficer(officer);
                 if (nextOfficer) {
                     cout << "Complaint escalated to " << nextOfficer->getName() << " (" << nextOfficer->getPosition() << ")" << endl;
@@ -279,13 +294,7 @@ bool isSpace(char c) {
     return c == ' ';
 }
 
-string trim(const string& str) {
-        size_t first = str.find_first_not_of(' ');
-        size_t last = str.find_last_not_of(' ');
-        if (first == string::npos || last == string::npos)
-            return "";
-        return str.substr(first, (last - first + 1));
-    }
+
 
 bool isValidName(const string& name) {
     if (name.empty() || trim(name).length() == 0) {
@@ -393,13 +402,7 @@ int main() {
         } else {
             cerr << "Invalid name entered. Please enter a valid name (letters and spaces only)." << endl;
         }
-    } while (continueInput == "Yes" || continueInput == "yes");
-    // Clean up
-    AdministrativeDepartment** departments = complaintSystem.getDepartments();
-    for (int i = 0; i < complaintSystem.getDepartmentCount(); ++i) {
-        delete departments[i];
-    }
-    delete complaintSystem.getRegistrar(); // Clean up the Registrar
+    } while (toLower(continueInput) == "yes");
 
     return 0;
 }
