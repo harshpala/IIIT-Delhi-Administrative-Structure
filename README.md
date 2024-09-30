@@ -6,6 +6,17 @@ This C++ program models the administrative and academic structure at IIIT-Delhi,
 
 The program reads data related to various personnel in both administrative and academic departments, storing information such as name, position, room number, phone number, and email. The main feature of the program is the ability to search for a person's details (room number, phone number, and email) based on their name.
 
+### Administrative Complaint Management System
+This C++ application implements an Administrative Complaint Management System that allows users to manage complaints against administrative officers in various departments of an organization. The system supports the following features:
+
+* Department Structure: Defines a hierarchy of departments, including IRD, Academics, Student Affairs, Store & Purchase, and Library, each managed by a Dean and possibly an Associate Dean.
+  
+* Officer Management: Each department can have multiple officers, including deans and administrative staff.
+  
+* Complaint Handling: Allows users to file complaints, check if the complaint has been resolved, and escalate unresolved complaints to higher authorities, including the Registrar.
+
+This system is designed to streamline the complaint handling process in educational or organizational administrative settings.
+
 ## Class Diagram
 
 Below is the class diagram for IIIT-Delhi Administrative Structure:
@@ -52,6 +63,9 @@ This will create six executables:
 - Q2_debug: The debug version.
 - Q2_optimised: The optimized version.
 - Q2.o: The object file.
+- Q3_debug: The debug version.
+- Q3_optimised: The optimized version.
+- Q3.o: The object file.
   
 To execute the optimized code, run:
    ```sh
@@ -61,10 +75,15 @@ or
    ```sh
    $ ./Q2_optimised
    ```
+ or
+ ```sh
+ $ ./Q3_optimised
+ ```
 
-## Running the Program
+## Running the Program (Q1 & Q2)
 
 Once the program is running, it will prompt you to enter the name of the person to search for. Based on the input, it will output the person's position, phone number, email, and address if they are found in the department.
+
 
 ### Input Format
 
@@ -89,6 +108,19 @@ If the person is not found, it will display:
    $ No details found for: Prachi Mukherjee
    ```
 
+## Running the Program (Q3. For Complaint Resolving:)
+
+Here you need to enter the name of the officer to whom the complaint was filed, next it will show the department of that officer and position, and ask if 3 days has passed or not.
+If yes it wil escalate to the higher authority.
+
+Enter the name of the officer to which complaint is filed: Kapil Dev Garg
+Department: IRD
+Position: Administrative Officer (IRD)
+Has complaint been resolved? (Yes/No):No
+Have 3 days passed? (Yes/No): Yes
+Complaint escalated to Debarka Sengupta (Associate Dean of Innovation- Research & Development (ADIRD))
+Do you want to continue? (Yes/No):No
+
 ## Data Format
 
 The program expects the input data file (data.csv) to have the following structure:
@@ -104,7 +136,7 @@ Officers,Technical Officer (IT) (SG),Abhinay Saxena,011 26907 574,,abhinay@iiitd
 
 ```
 
-The program expects the input data file (data.csv) to have the following structure:
+The program expects the input data file (data2.csv) to have the following structure:
 
 ```
 Name,Position,Address,Phone,Email,Department
