@@ -64,6 +64,15 @@ public:
         : Person(name, "Administrative Officer", phoneNumber, faxNumber, email, secondaryEmail, address) {}
 };
 
+
+class DeputyAdministrativeOfficer : public AdministrativeOfficer {
+public:
+    DeputyAdministrativeOfficer() : AdministrativeOfficer("","Deputy Administrative Officer", "", "", "", "", "") {}
+
+    DeputyAdministrativeOfficer(string name,string position, string phoneNumber, string faxNumber, string email, string secondaryEmail, string address)
+        : AdministrativeOfficer(name,"Deputy Administrative Officer", phoneNumber, faxNumber, email, secondaryEmail, address) {}
+};
+
 class AssistantAdministrativeOfficer : public AdministrativeOfficer {
 public:
     AssistantAdministrativeOfficer() :  AdministrativeOfficer("","Assistant Administrative Officer", "", "", "", "", "") {} // Default constructor
@@ -80,13 +89,6 @@ public:
         : AdministrativeOfficer(name,"Junior Administrative Officer", phoneNumber, faxNumber, email, secondaryEmail, address) {}
 };
 
-class DeputyAdministrativeOfficer : public AdministrativeOfficer {
-public:
-    DeputyAdministrativeOfficer() : AdministrativeOfficer("","Deputy Administrative Officer", "", "", "", "", "") {}
-
-    DeputyAdministrativeOfficer(string name,string position, string phoneNumber, string faxNumber, string email, string secondaryEmail, string address)
-        : AdministrativeOfficer(name,"Deputy Administrative Officer", phoneNumber, faxNumber, email, secondaryEmail, address) {}
-};
 
 
 // Derived class for Officers
@@ -283,14 +285,14 @@ public:
         if (registrar != nullptr) {
             string registrarName = toLower(trim(registrar->getName()));
             if (registrarName == searchName) {
-                cout << " → Registrar: " << registrar->getName()<<endl
-                    << " → Position: " << registrar->getPosition()<<endl
-                    << " → Phone: " << registrar->getPhoneNumber()<<endl
-                    << " → Fax: " << registrar->getfaxNumber()<<endl
-                    << " → Email: " << registrar->getEmail()<<endl;
+                cout << " * Registrar: " << registrar->getName()<<endl
+                    << " * Position: " << registrar->getPosition()<<endl
+                    << " * Phone: " << registrar->getPhoneNumber()<<endl
+                    << " * Fax: " << registrar->getfaxNumber()<<endl
+                    << " * Email: " << registrar->getEmail()<<endl;
                     if (registrar->getSecondaryEmail()!="")
-                    cout<< " → Secondary Email: "<<registrar->getSecondaryEmail()<<endl;          
-                    cout<< " → Address: " << registrar->getAddress() << endl;
+                    cout<< " * Secondary Email: "<<registrar->getSecondaryEmail()<<endl;          
+                    cout<< " * Address: " << registrar->getAddress() << endl;
                 return;
             }
         }
@@ -298,43 +300,43 @@ public:
 
         // Check IRD Department
         if (toLower(trim(ird.getDean().getName())) == searchName) {
-            cout << " → Dean of Innovation, Research & Development (DIRD): " << ird.getDean().getName()<<endl
-                << " → Phone: " << ird.getDean().getPhoneNumber()<<endl
-                << " → Email: " << ird.getDean().getEmail()<<endl;
+            cout << " * Dean of Innovation, Research & Development (DIRD): " << ird.getDean().getName()<<endl
+                << " * Phone: " << ird.getDean().getPhoneNumber()<<endl
+                << " * Email: " << ird.getDean().getEmail()<<endl;
             if (ird.getDean().getSecondaryEmail()!="")
-            cout << " → Secondary Email: " << ird.getDean().getSecondaryEmail()<<endl;
+            cout << " * Secondary Email: " << ird.getDean().getSecondaryEmail()<<endl;
             return;
         }
 
         if (toLower(trim(ird.getAssociateDean().getName())) == searchName) {
-            cout << " → Associate Dean of Innovation, Research & Development (ADIRD): " << ird.getAssociateDean().getName()<< endl
-                << " → Phone: " << ird.getAssociateDean().getPhoneNumber()<< endl
-                << " → Email: " << ird.getAssociateDean().getEmail()<< endl;
+            cout << " * Associate Dean of Innovation, Research & Development (ADIRD): " << ird.getAssociateDean().getName()<< endl
+                << " * Phone: " << ird.getAssociateDean().getPhoneNumber()<< endl
+                << " * Email: " << ird.getAssociateDean().getEmail()<< endl;
             if (ird.getAssociateDean().getSecondaryEmail()!="")
-                cout<< " → Secondary Email: " << ird.getAssociateDean().getSecondaryEmail()<< endl;
-                cout<< " → Address: " << ird.getAssociateDean().getAddress() << endl;
+                cout<< " * Secondary Email: " << ird.getAssociateDean().getSecondaryEmail()<< endl;
+                cout<< " * Address: " << ird.getAssociateDean().getAddress() << endl;
             return;
         }
 
         if (toLower(trim(ird.getAdministrativeOfficer().getName())) == searchName) {
-            cout << " → Administrative Officer (IRD): " << ird.getAdministrativeOfficer().getName()<< endl
-                << " → Phone: " << ird.getAdministrativeOfficer().getPhoneNumber()<< endl
-                << " → Email: " << ird.getAdministrativeOfficer().getEmail()<< endl;
+            cout << " * Administrative Officer (IRD): " << ird.getAdministrativeOfficer().getName()<< endl
+                << " * Phone: " << ird.getAdministrativeOfficer().getPhoneNumber()<< endl
+                << " * Email: " << ird.getAdministrativeOfficer().getEmail()<< endl;
             if (ird.getAdministrativeOfficer().getSecondaryEmail()!="")
-            cout<< " → Secondary Email: " << ird.getAdministrativeOfficer().getSecondaryEmail()<< endl;
-            cout<< " → Address: " << ird.getAdministrativeOfficer().getAddress() << endl;
+            cout<< " * Secondary Email: " << ird.getAdministrativeOfficer().getSecondaryEmail()<< endl;
+            cout<< " * Address: " << ird.getAdministrativeOfficer().getAddress() << endl;
             return;
         }
 
         // Check Assistant Administrative Officers in IRD
         for (int i = 0; i < ird.getAssistantAdministrativeCount(); ++i) {
             if (toLower(trim(ird.getAssistantAdministrativeOfficer(i).getName())) == searchName) {
-                cout << " → Assistant Administrative Officer (IRD): " << ird.getAssistantAdministrativeOfficer(i).getName() << endl
-                    << " → Phone: " << ird.getAssistantAdministrativeOfficer(i).getPhoneNumber() << endl
-                    << " → Email: " << ird.getAssistantAdministrativeOfficer(i).getEmail() << endl;
+                cout << " * Assistant Administrative Officer (IRD): " << ird.getAssistantAdministrativeOfficer(i).getName() << endl
+                    << " * Phone: " << ird.getAssistantAdministrativeOfficer(i).getPhoneNumber() << endl
+                    << " * Email: " << ird.getAssistantAdministrativeOfficer(i).getEmail() << endl;
                 if (ird.getAssistantAdministrativeOfficer(i).getSecondaryEmail() != "")
-                    cout << " → Secondary Email: " << ird.getAssistantAdministrativeOfficer(i).getSecondaryEmail() << endl;
-                cout << " → Address: " << ird.getAssistantAdministrativeOfficer(i).getAddress() << endl;
+                    cout << " * Secondary Email: " << ird.getAssistantAdministrativeOfficer(i).getSecondaryEmail() << endl;
+                cout << " * Address: " << ird.getAssistantAdministrativeOfficer(i).getAddress() << endl;
                 return;
             }
         }
@@ -342,12 +344,12 @@ public:
         // Check Junior Administrative Officers in IRD
         for (int i = 0; i < ird.getJuniorCount(); ++i) {
             if (toLower(trim(ird.getJuniorAdministrativeOfficer(i).getName())) == searchName) {
-                cout << " → Junior Administrative Officer (IRD): " << ird.getJuniorAdministrativeOfficer(i).getName() << endl
-                    << " → Phone: " << ird.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
-                    << " → Email: " << ird.getJuniorAdministrativeOfficer(i).getEmail() << endl;
+                cout << " * Junior Administrative Officer (IRD): " << ird.getJuniorAdministrativeOfficer(i).getName() << endl
+                    << " * Phone: " << ird.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
+                    << " * Email: " << ird.getJuniorAdministrativeOfficer(i).getEmail() << endl;
                 if (ird.getJuniorAdministrativeOfficer(i).getSecondaryEmail() != "")
-                    cout << " → Secondary Email: " << ird.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
-                cout << " → Address: " << ird.getJuniorAdministrativeOfficer(i).getAddress() << endl;
+                    cout << " * Secondary Email: " << ird.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
+                cout << " * Address: " << ird.getJuniorAdministrativeOfficer(i).getAddress() << endl;
                 return;
             }
         }
@@ -355,32 +357,32 @@ public:
 
         // Check Academics Department
         if (toLower(trim(academics.getDean().getName())) == searchName) {
-            cout << " → Dean of Academic Affairs (DoAA): " << academics.getDean().getName()<< endl
-                << " → Phone: " << academics.getDean().getPhoneNumber()<< endl
-                << " → Email: " << academics.getDean().getEmail()<< endl;
+            cout << " * Dean of Academic Affairs (DoAA): " << academics.getDean().getName()<< endl
+                << " * Phone: " << academics.getDean().getPhoneNumber()<< endl
+                << " * Email: " << academics.getDean().getEmail()<< endl;
             if (academics.getDean().getSecondaryEmail()!="")
-            cout<< " → Secondary Email: " << academics.getDean().getSecondaryEmail()<<endl;
+            cout<< " * Secondary Email: " << academics.getDean().getSecondaryEmail()<<endl;
             return;
         }
 
         if (toLower(trim(academics.getAdministrativeOfficer().getName())) == searchName) {
-            cout << " → Administrative Officer (Academics): " << academics.getAdministrativeOfficer().getName()<<endl
-                << " → Phone: " << academics.getAdministrativeOfficer().getPhoneNumber()<<endl
-                << " → Email: " << academics.getAdministrativeOfficer().getEmail()<<endl;
+            cout << " * Administrative Officer (Academics): " << academics.getAdministrativeOfficer().getName()<<endl
+                << " * Phone: " << academics.getAdministrativeOfficer().getPhoneNumber()<<endl
+                << " * Email: " << academics.getAdministrativeOfficer().getEmail()<<endl;
             if (academics.getAdministrativeOfficer().getSecondaryEmail()!="")
-            cout << " → Secondary Email: " << academics.getAdministrativeOfficer().getSecondaryEmail()<<endl;
-            cout << " → Address: " << academics.getAdministrativeOfficer().getAddress() << endl;
+            cout << " * Secondary Email: " << academics.getAdministrativeOfficer().getSecondaryEmail()<<endl;
+            cout << " * Address: " << academics.getAdministrativeOfficer().getAddress() << endl;
             return;
         }
 
     for (int i = 0; i < academics.getAssistantAdministrativeCount(); ++i) {
         if (toLower(trim(academics.getAssistantAdministrativeOfficer(i).getName())) == searchName) {
-            cout << " → Assistant Administrative Officer (Academics): " << academics.getAssistantAdministrativeOfficer(i).getName() << endl
-                << " → Phone: " << academics.getAssistantAdministrativeOfficer(i).getPhoneNumber() << endl
-                << " → Email: " << academics.getAssistantAdministrativeOfficer(i).getEmail() << endl;
+            cout << " * Assistant Administrative Officer (Academics): " << academics.getAssistantAdministrativeOfficer(i).getName() << endl
+                << " * Phone: " << academics.getAssistantAdministrativeOfficer(i).getPhoneNumber() << endl
+                << " * Email: " << academics.getAssistantAdministrativeOfficer(i).getEmail() << endl;
             if (academics.getAssistantAdministrativeOfficer(i).getSecondaryEmail() != "")
-                cout << " → Secondary Email: " << academics.getAssistantAdministrativeOfficer(i).getSecondaryEmail() << endl;
-            cout << " → Address: " << academics.getAssistantAdministrativeOfficer(i).getAddress() << endl;
+                cout << " * Secondary Email: " << academics.getAssistantAdministrativeOfficer(i).getSecondaryEmail() << endl;
+            cout << " * Address: " << academics.getAssistantAdministrativeOfficer(i).getAddress() << endl;
             return;
         }
     }
@@ -388,23 +390,23 @@ public:
 
     for (int i = 0; i < academics.getJuniorCount(); ++i) {
         if (toLower(trim(academics.getJuniorAdministrativeOfficer(i).getName())) == searchName) {
-            cout << " → Junior Administrative Officer (Academics): " << academics.getJuniorAdministrativeOfficer(i).getName() << endl
-                << " → Phone: " << academics.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
-                << " → Email: " << academics.getJuniorAdministrativeOfficer(i).getEmail() << endl;
+            cout << " * Junior Administrative Officer (Academics): " << academics.getJuniorAdministrativeOfficer(i).getName() << endl
+                << " * Phone: " << academics.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
+                << " * Email: " << academics.getJuniorAdministrativeOfficer(i).getEmail() << endl;
             if (academics.getJuniorAdministrativeOfficer(i).getSecondaryEmail() != "")
-                cout << " → Secondary Email: " << academics.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
-            cout << " → Address: " << academics.getJuniorAdministrativeOfficer(i).getAddress() << endl;
+                cout << " * Secondary Email: " << academics.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
+            cout << " * Address: " << academics.getJuniorAdministrativeOfficer(i).getAddress() << endl;
             return;
         }
     }
         
     if (toLower(trim(academics.getDeputyAdministrativeOfficer().getName())) == searchName) {
-            cout << " → Deputy Administrative Officer (Academics): " << academics.getDeputyAdministrativeOfficer().getName()<< endl
-                << " → Phone: " << academics.getDeputyAdministrativeOfficer().getPhoneNumber()<< endl
-                << " → Email: " << academics.getDeputyAdministrativeOfficer().getEmail()<< endl;
+            cout << " * Deputy Administrative Officer (Academics): " << academics.getDeputyAdministrativeOfficer().getName()<< endl
+                << " * Phone: " << academics.getDeputyAdministrativeOfficer().getPhoneNumber()<< endl
+                << " * Email: " << academics.getDeputyAdministrativeOfficer().getEmail()<< endl;
             if (academics.getDeputyAdministrativeOfficer().getSecondaryEmail()!="")
-            cout<< " → Secondary Email: " << academics.getDeputyAdministrativeOfficer().getSecondaryEmail()<<endl;
-            cout<< " → Address: " << academics.getDeputyAdministrativeOfficer().getAddress() << endl;
+            cout<< " * Secondary Email: " << academics.getDeputyAdministrativeOfficer().getSecondaryEmail()<<endl;
+            cout<< " * Address: " << academics.getDeputyAdministrativeOfficer().getAddress() << endl;
             return;
         }
 
@@ -414,32 +416,32 @@ public:
 
         // Check Student Affairs Department
             if (toLower(trim(studentAffairs.getDean().getName())) == searchName) {
-            cout << " → Dean of Student Affairs (DoSA): " << studentAffairs.getDean().getName()<< endl
-                << " → Phone: " << studentAffairs.getDean().getPhoneNumber()<< endl
-                << " → Email: " << studentAffairs.getDean().getEmail()<< endl;
+            cout << " * Dean of Student Affairs (DoSA): " << studentAffairs.getDean().getName()<< endl
+                << " * Phone: " << studentAffairs.getDean().getPhoneNumber()<< endl
+                << " * Email: " << studentAffairs.getDean().getEmail()<< endl;
             if (studentAffairs.getDean().getSecondaryEmail()!="")
-            cout<< " → Secondary Email: " << studentAffairs.getDean().getSecondaryEmail()<<endl;
+            cout<< " * Secondary Email: " << studentAffairs.getDean().getSecondaryEmail()<<endl;
             return;
         }
 
         if (toLower(trim(studentAffairs.getAdministrativeOfficer().getName())) == searchName) {
-            cout << " → Administrative Officer (Student Affairs): " << studentAffairs.getAdministrativeOfficer().getName()<<endl
-                << " → Phone: " << studentAffairs.getAdministrativeOfficer().getPhoneNumber()<<endl
-                << " → Email: " << studentAffairs.getAdministrativeOfficer().getEmail()<<endl;
+            cout << " * Administrative Officer (Student Affairs): " << studentAffairs.getAdministrativeOfficer().getName()<<endl
+                << " * Phone: " << studentAffairs.getAdministrativeOfficer().getPhoneNumber()<<endl
+                << " * Email: " << studentAffairs.getAdministrativeOfficer().getEmail()<<endl;
             if (studentAffairs.getAdministrativeOfficer().getSecondaryEmail()!="")
-            cout<< " → Secondary Email: " << studentAffairs.getAdministrativeOfficer().getSecondaryEmail()<<endl;
-            cout << " → Address: " << studentAffairs.getAdministrativeOfficer().getAddress() << endl;
+            cout<< " * Secondary Email: " << studentAffairs.getAdministrativeOfficer().getSecondaryEmail()<<endl;
+            cout << " * Address: " << studentAffairs.getAdministrativeOfficer().getAddress() << endl;
             return;
         }
 
         for (int i = 0; i < studentAffairs.getJuniorCount(); ++i) {
         if (toLower(trim(studentAffairs.getJuniorAdministrativeOfficer(i).getName())) == searchName) {
-            cout << " → Junior Administrative Officer (Student Affairs): " << studentAffairs.getJuniorAdministrativeOfficer(i).getName() << endl
-                << " → Phone: " << studentAffairs.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
-                << " → Email: " << studentAffairs.getJuniorAdministrativeOfficer(i).getEmail() << endl;
+            cout << " * Junior Administrative Officer (Student Affairs): " << studentAffairs.getJuniorAdministrativeOfficer(i).getName() << endl
+                << " * Phone: " << studentAffairs.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
+                << " * Email: " << studentAffairs.getJuniorAdministrativeOfficer(i).getEmail() << endl;
             if (studentAffairs.getJuniorAdministrativeOfficer(i).getSecondaryEmail() != "")
-                cout << " → Secondary Email: " << studentAffairs.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
-            cout << " → Address: " << studentAffairs.getJuniorAdministrativeOfficer(i).getAddress() << endl;
+                cout << " * Secondary Email: " << studentAffairs.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
+            cout << " * Address: " << studentAffairs.getJuniorAdministrativeOfficer(i).getAddress() << endl;
             return;
         }
     }
@@ -448,23 +450,23 @@ public:
 
         // Check Store Purchase Department
         if (toLower(trim(storePurchase.getAdministrativeOfficer().getName())) == searchName) {
-            cout << " → Administrative Officer (Store & Purchase): " << storePurchase.getAdministrativeOfficer().getName()<<endl
-                << " → Phone: " << storePurchase.getAdministrativeOfficer().getPhoneNumber()<<endl
-                << " → Email: " << storePurchase.getAdministrativeOfficer().getEmail()<<endl;
+            cout << " * Administrative Officer (Store & Purchase): " << storePurchase.getAdministrativeOfficer().getName()<<endl
+                << " * Phone: " << storePurchase.getAdministrativeOfficer().getPhoneNumber()<<endl
+                << " * Email: " << storePurchase.getAdministrativeOfficer().getEmail()<<endl;
             if (storePurchase.getAdministrativeOfficer().getSecondaryEmail()!="")
-            cout<< " → Secondary Email: " << storePurchase.getAdministrativeOfficer().getSecondaryEmail()<<endl;
-            cout<< " → Address: " << storePurchase.getAdministrativeOfficer().getAddress() << endl;
+            cout<< " * Secondary Email: " << storePurchase.getAdministrativeOfficer().getSecondaryEmail()<<endl;
+            cout<< " * Address: " << storePurchase.getAdministrativeOfficer().getAddress() << endl;
             return;
         }
 
         for (int i = 0; i < storePurchase.getAssistantAdministrativeCount(); ++i) {
         if (toLower(trim(storePurchase.getAssistantAdministrativeOfficer(i).getName())) == searchName) {
-            cout << " → Assistant Administrative Officer (Store & Purchase): " << storePurchase.getAssistantAdministrativeOfficer(i).getName() << endl
-                << " → Phone: " << storePurchase.getAssistantAdministrativeOfficer(i).getPhoneNumber() << endl
-                << " → Email: " << storePurchase.getAssistantAdministrativeOfficer(i).getEmail() << endl;
+            cout << " * Assistant Administrative Officer (Store & Purchase): " << storePurchase.getAssistantAdministrativeOfficer(i).getName() << endl
+                << " * Phone: " << storePurchase.getAssistantAdministrativeOfficer(i).getPhoneNumber() << endl
+                << " * Email: " << storePurchase.getAssistantAdministrativeOfficer(i).getEmail() << endl;
             if (storePurchase.getAssistantAdministrativeOfficer(i).getSecondaryEmail() != "")
-                cout << " → Secondary Email: " << storePurchase.getAssistantAdministrativeOfficer(i).getSecondaryEmail() << endl;
-            cout << " → Address: " << storePurchase.getAssistantAdministrativeOfficer(i).getAddress() << endl;
+                cout << " * Secondary Email: " << storePurchase.getAssistantAdministrativeOfficer(i).getSecondaryEmail() << endl;
+            cout << " * Address: " << storePurchase.getAssistantAdministrativeOfficer(i).getAddress() << endl;
             return;
         }
     }
@@ -472,12 +474,12 @@ public:
 
     for (int i = 0; i < storePurchase.getJuniorCount(); ++i) {
         if (toLower(trim(storePurchase.getJuniorAdministrativeOfficer(i).getName())) == searchName) {
-            cout << " → Junior Administrative Officer (Store & Purchase): " << storePurchase.getJuniorAdministrativeOfficer(i).getName() << endl
-                << " → Phone: " << storePurchase.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
-                << " → Email: " << storePurchase.getJuniorAdministrativeOfficer(i).getEmail() << endl;
+            cout << " * Junior Administrative Officer (Store & Purchase): " << storePurchase.getJuniorAdministrativeOfficer(i).getName() << endl
+                << " * Phone: " << storePurchase.getJuniorAdministrativeOfficer(i).getPhoneNumber() << endl
+                << " * Email: " << storePurchase.getJuniorAdministrativeOfficer(i).getEmail() << endl;
             if (storePurchase.getJuniorAdministrativeOfficer(i).getSecondaryEmail() != "")
-                cout << " → Secondary Email: " << storePurchase.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
-            cout << " → Address: " << storePurchase.getJuniorAdministrativeOfficer(i).getAddress() << endl;
+                cout << " * Secondary Email: " << storePurchase.getJuniorAdministrativeOfficer(i).getSecondaryEmail() << endl;
+            cout << " * Address: " << storePurchase.getJuniorAdministrativeOfficer(i).getAddress() << endl;
             return;
         }
     }
@@ -486,21 +488,21 @@ public:
 
     // Check Library Department
     if (toLower(trim(library.getOfficer().getName())) == searchName) {
-        cout << " → Library Officer (SG): " << library.getOfficer().getName()<<endl
-             << " → Phone: " << library.getOfficer().getPhoneNumber()<<endl
-             << " → Email: " << library.getOfficer().getEmail()<<endl;
+        cout << " * Library Officer (SG): " << library.getOfficer().getName()<<endl
+             << " * Phone: " << library.getOfficer().getPhoneNumber()<<endl
+             << " * Email: " << library.getOfficer().getEmail()<<endl;
         if (library.getOfficer().getSecondaryEmail()!="")
-        cout<< " → Secondary Email: " << library.getOfficer().getSecondaryEmail()<<endl;
-        cout<< " → Address: " << library.getOfficer().getAddress() << endl;
+        cout<< " * Secondary Email: " << library.getOfficer().getSecondaryEmail()<<endl;
+        cout<< " * Address: " << library.getOfficer().getAddress() << endl;
         return;
     }
     if (toLower(trim(library.getJuniorOfficer().getName())) == searchName) {
-        cout << " → Junior Library Officer: " << library.getJuniorOfficer().getName()<<endl
-             << " → Phone: " << library.getJuniorOfficer().getPhoneNumber()<<endl
-             << " → Email: " << library.getJuniorOfficer().getEmail()<<endl;
+        cout << " * Junior Library Officer: " << library.getJuniorOfficer().getName()<<endl
+             << " * Phone: " << library.getJuniorOfficer().getPhoneNumber()<<endl
+             << " * Email: " << library.getJuniorOfficer().getEmail()<<endl;
         if (library.getJuniorOfficer().getSecondaryEmail()!="")
-        cout<< " → Secondary Email: " << library.getJuniorOfficer().getSecondaryEmail()<<endl;
-        cout<< " → Address: " << library.getJuniorOfficer().getAddress() << endl;
+        cout<< " * Secondary Email: " << library.getJuniorOfficer().getSecondaryEmail()<<endl;
+        cout<< " * Address: " << library.getJuniorOfficer().getAddress() << endl;
         return;
     }
 
