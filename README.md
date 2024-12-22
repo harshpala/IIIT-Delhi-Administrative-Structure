@@ -20,10 +20,10 @@ This system is designed to streamline the complaint handling process in educatio
 
 Below is the class diagram for IIIT-Delhi Administrative Structure:
 
-![alt text](MT24119/assets/Class_Diagram.png)
+![alt text](assets/Class_Diagram.png)
 
 Below is the class diagram for IIIT-Delhi Academic Structure:
-![alt text](MT24119/assets/Class_Diagram_2.png)
+![alt text](assets/Class_Diagram_2.png)
 
 ## Files
 
