@@ -1,8 +1,7 @@
-# IIIT-Delhi Administrative Structure - Assignment 2A
-
+# IIIT-Delhi Administrative Structure
 ## Overview
 
-This C++ program models the administrative and academic structure at IIIT-Delhi, based on the details provided in the assignment. It uses object-oriented programming principles such as classes and inheritance to represent departments, their heads, and officers.
+This C++ program models the administrative and academic structure at IIIT-Delhi.. It uses object-oriented programming principles such as classes and inheritance to represent departments, their heads, and officers.
 
 The program reads data related to various personnel in both administrative and academic departments, storing information such as name, position, room number, phone number, and email. The main feature of the program is the ability to search for a person's details (room number, phone number, and email) based on their name.
 
@@ -21,11 +20,10 @@ This system is designed to streamline the complaint handling process in educatio
 
 Below is the class diagram for IIIT-Delhi Administrative Structure:
 
-![alt text](Class_Diagram.png)
+![alt text](MT24119/assets/Class_Diagram.png)
 
 Below is the class diagram for IIIT-Delhi Academic Structure:
-![alt text](Class_Diagram_2.png)
-
+![alt text](MT24119/assets/Class_Diagram_2.png)
 
 ## Files
 
